@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: Manrope;
+    background-color: #f8f8f9;
+  }
+  .sidebar-menu aside nav a {
+    @apply flex items-center p-3 rounded-md text-[#BCC1C9] text-base;
+  }
+  .sidebar-menu aside nav a:hover {
+    @apply bg-white text-[#0048B7];
+  }
+  ._sidebar-menu {
+    transform: translateX(-100%)
+  }
+  @screen lg {
+    ._sidebar-menu {
+      transform: translateX(0)
+    }
+  }
+  .nuxt-link-active ._text {
+    @apply text-[#0048B7] font-bold;
+  }
+  .sidebar-menu aside nav .nuxt-link-active {
+    @apply bg-white;
+  }
+  a {
+    @apply text-[#0048B7];
+  }
+  h2 {
+    @apply text-lg font-bold;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .pagination [tabindex] {
+    padding: 5px 10px;
+    border: 1px solid #d1d5db;
+  }
+  .page-item a {
+    min-width: 40px;
+    padding: 5px 12px;
+    border: 1px solid #d1d5db;
+    align-items: center;
+    color: #4b5563;
+  }
+  .page-item.active a {
+    color: #0048b7;
+    border: 1px solid #0048b7;
+    background-color: #eef2ff;
+  }
+}
+
+
+@layer components {
+  textarea {
+    @apply w-full border rounded-md my-2
+  }
+  input[type=radio] {
+    @apply border-none inline-block w-auto p-0 pr-4 rounded-md m-0
+  }
+  input[type="radio"] {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    padding: 6px;
+    background-clip: content-box;
+    border: 1px solid #bbbbbb;
+    background-color: #e7e6e7;
+    border-radius: 50%;
+  }
+  input[type="radio"]:checked {
+    border: 1px solid #4F46E5;
+    background-color: #4F46E5;
+  }
+  input[type="file"] {
+    @apply m-0 p-0
+  }
+  ._layoul-positions {
+    @apply text-center
+  }
+  ._layoul-positions div {
+    @apply flex flex-col items-center justify-center cursor-pointer rounded-md
+  }
+  ._layoul-positions div h2 {
+    @apply text-sm
+  }
+}
+
+@layer utilities {
+  .btn-open {
+    transform: translateX(0);
+    opacity: 1;
+    transition: 300ms ease;
+  }
+  .btn-open.menuActive {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  .btn-close {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 300ms ease;
+  }
+  .btn-close.menuActive {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  .open_profile {
+    @apply translate-y-[72px]
+  }
+  .hidden-profile-buttons {
+    @apply translate-y-[-30px]
+  }
+}
+
+/* Анимации плавное появление для перехода по страницам и модального окна */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.quillWrapper button {
+  min-width: auto !important;
+}
+
+/* Старт стилей анимации встряхивания */
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  }
+  @-webkit-keyframes shake {
+  0%, 100% {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+  -webkit-transform: translate3d(-10px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+  -webkit-transform: translate3d(10px, 0, 0);
+  transform: translate3d(10px, 0, 0);
+  }
+  }
+  @keyframes shake {
+  0%, 100% {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+  -webkit-transform: translate3d(-10px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+  -webkit-transform: translate3d(10px, 0, 0);
+  transform: translate3d(10px, 0, 0);
+  }
+}
+/* Конец стилей */
